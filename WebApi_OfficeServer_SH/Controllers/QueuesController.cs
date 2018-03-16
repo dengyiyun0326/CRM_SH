@@ -37,7 +37,7 @@ namespace WebApi_OfficeServer_SH.Controllers
             //Fill Azure DB table with client list
             foreach (CaseQueue caseItem in caseQueueList)
             {
-                caseDBContext.Add(caseItem);
+                caseDBContext.CaseQueue.Add(caseItem);
             }
             try
             {
