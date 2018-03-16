@@ -5,33 +5,51 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApi_OfficeServer_SH.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace WebApi_OfficeServer_SH.Controllers
 {
     public class QueuesController : ApiController
     {
-        List<CaseQueue> caseQueueList = new List<CaseQueue>();
-
-        //initial test
+        OfficeDBContext caseDBContext = new OfficeDBContext();
 
         // GET api/<controller>
         public List<CaseQueue> Get()
         {
-            return caseQueueList;
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
+            return caseDBContext.CaseQueue.ToList();
         }
 
         // POST api/<controller>
-        public HttpResponseMessage Post([FromBody]List<CaseQueue> clientQueueList)
+        public async Task<IHttpActionResult> Post([FromBody]List<CaseQueue> caseQueueList)
         {
+            //Clear Azure DB table
+            try
+            {
+                caseDBContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [CaseQueue]");
+                await caseDBContext.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                return Conflict();
+            }       
 
-            var response = Request.CreateResponse(HttpStatusCode.Created, "OfficeQueue");
-            return response;
+            //Fill Azure DB table with client list
+            foreach (CaseQueue caseItem in caseQueueList)
+            {
+                caseDBContext.Add(caseItem);
+            }
+            try
+            {
+                await caseDBContext.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                return Conflict();
+            }
+
+            return CreatedAtRoute("DefaultApi", new { id=caseQueueList.Count},caseQueueList.Select(p=>p.CaseId));
+
         }
 
         // PUT api/<controller>/5
