@@ -10,11 +10,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApi_OfficeServer_SH.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         OfficeDBContext caseDBContext = new OfficeDBContext();
 
+        [Authorize]
         public async Task<ActionResult> Index()
         {
             ViewBag.Title = "Purple Star No.999";
