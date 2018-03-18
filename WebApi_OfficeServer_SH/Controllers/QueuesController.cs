@@ -32,20 +32,23 @@ namespace WebApi_OfficeServer_SH.Controllers
             catch (DbUpdateException)
             {
                 return Conflict();
-            }       
+            }
 
-            //Fill Azure DB table with client list
-            foreach (CaseQueue caseItem in caseQueueList)
+            if (caseQueueList.Any())
             {
-                caseDBContext.CaseQueue.Add(caseItem);
-            }
-            try
-            {
-                await caseDBContext.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                return Conflict();
+                //Fill Azure DB table with client list
+                foreach (CaseQueue caseItem in caseQueueList)
+                {
+                    caseDBContext.CaseQueue.Add(caseItem);
+                }
+                try
+                {
+                    await caseDBContext.SaveChangesAsync();
+                }
+                catch (DbUpdateException)
+                {
+                    return Conflict();
+                }
             }
 
             return CreatedAtRoute("DefaultApi", new { id=caseQueueList.Count},caseQueueList.Select(p=>p.CaseId));
