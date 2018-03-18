@@ -11,18 +11,18 @@ using System.Threading.Tasks;
 
 namespace WebApi_OfficeServer_SH.Controllers
 {
-    [System.Web.Mvc.AllowAnonymous]
+
     public class QueuesController : ApiController
     {
         OfficeDBContext caseDBContext = new OfficeDBContext();
 
-        // GET api/<controller>
-        /*
+
+        [System.Web.Mvc.HttpGet]
         public List<CaseQueue> Get()
         {
             return caseDBContext.CaseQueue.ToList();
         }
-        */
+
 
         [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
