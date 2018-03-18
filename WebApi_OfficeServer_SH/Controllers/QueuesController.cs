@@ -20,6 +20,7 @@ namespace WebApi_OfficeServer_SH.Controllers
             return caseDBContext.CaseQueue.ToList();
         }
 
+        [AllowAnonymous]
         // POST api/<controller>
         public async Task<IHttpActionResult> Post([FromBody]List<CaseQueue> caseQueueList)
         {
@@ -52,7 +53,6 @@ namespace WebApi_OfficeServer_SH.Controllers
             }
 
             return CreatedAtRoute("DefaultApi", new { id=caseQueueList.Count},caseQueueList.Select(p=>p.CaseId));
-
         }
 
         // PUT api/<controller>/5

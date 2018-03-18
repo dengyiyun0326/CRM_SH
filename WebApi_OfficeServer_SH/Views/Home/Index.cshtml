@@ -13,9 +13,9 @@
         <div class="col-md-3">
             <hr />
             <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Model[i + j].CaseId)</h4>
-            <h4 style="color:red">SLA Deadline: @Html.DisplayFor(item => Model[i + j].EndTimeSla)</h4>
+            <h4 style="color:red">SLA: @Html.DisplayFor(item => Model[i + j].EndTimeSla)</h4>
             <p class="lead">Title: @Html.DisplayFor(item => Model[i + j].CustomerTitle)</p>
-            <p>Country: @Html.DisplayFor(item => Model[i + j].CallingCountry)</p>
+            <b>Country: @Html.DisplayFor(item => Model[i + j].CallingCountry)</b>
             <p>Queue: @Html.DisplayFor(item => Model[i + j].BelongQueue)</p>
         </div>
 
