@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
+using System.Web.Http.Filters;
 using System.Web.Mvc;
 using WebApi_OfficeServer_SH.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace WebApi_OfficeServer_SH.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         OfficeDBContext caseDBContext = new OfficeDBContext();
