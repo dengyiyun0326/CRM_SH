@@ -1,5 +1,5 @@
 ﻿@model List<WebApi_OfficeServer_SH.Models.CaseQueue>
-@{int j; }
+@{int j; int m = 0;}
 @for (var i = 0; ; i++)
 {
     if (!Model.Any())
@@ -10,50 +10,52 @@
 
     <div class="row">
         @for (j = 0; j < 4; j++)
-        {
-        <div class="col-md-3">
+         {
+         <div class="col-md-3">
             <hr />
             <!--Bypass and Assgined-->
             @if (Model[i + j].IfAssign == "true")
-    {
-        <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Model[i + j].CaseId)</h4>
-        <h4 style="color:blue">SLA: @Html.DisplayFor(item => Model[i + j].EndTimeSla)</h4>
-        <p style="color:blue">Title: @Html.DisplayFor(item => Model[i + j].CustomerTitle)</p>
-        <b>Country: @Html.DisplayFor(item => Model[i + j].CallingCountry)</b>
-        <p>Queue: @Html.DisplayFor(item => Model[i + j].BelongQueue)</p>
-        <p style="color:darkblue">Assigned</p>
-}
-else if (Model[i + j].IfBypass == "true")
-{
-        <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Model[i + j].CaseId)</h4>
-        <h4 style="color:grey">SLA: @Html.DisplayFor(item => Model[i + j].EndTimeSla)</h4>
-        <p style="color:grey">Title: @Html.DisplayFor(item => Model[i + j].CustomerTitle)</p>
-        <b style="color:grey">Country: @Html.DisplayFor(item => Model[i + j].CallingCountry)</b>
-        <p style="color:grey">Queue: @Html.DisplayFor(item => Model[i + j].BelongQueue)</p>
-        <p style="color:slategrey">Bypassed</p>
-}
-else
-{
-        <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Model[i + j].CaseId)</h4>
-        <h4 style="color:red">SLA: @Html.DisplayFor(item => Model[i + j].EndTimeSla)</h4>
-        <p class="lead">Title: @Html.DisplayFor(item => Model[i + j].CustomerTitle)</p>
-        <b>Country: @Html.DisplayFor(item => Model[i + j].CallingCountry)</b>
-        <p>Queue: @Html.DisplayFor(item => Model[i + j].BelongQueue)</p>
+            {
+                <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Model[i + j].CaseId)</h4>
+                <h4 style="color:blue">SLA: @Html.DisplayFor(item => Model[i + j].EndTimeSla)</h4>
+                <p style="color:blue">Title: @Html.DisplayFor(item => Model[i + j].CustomerTitle)</p>
+                <b>Country: @Html.DisplayFor(item => Model[i + j].CallingCountry)</b>
+                <p>Queue: @Html.DisplayFor(item => Model[i + j].BelongQueue)</p>
+                <p style="color:darkblue">Assigned</p>
+            }
+            else if (Model[i + j].IfBypass == "true")
+            {
+                <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Model[i + j].CaseId)</h4>
+                <h4 style="color:grey">SLA: @Html.DisplayFor(item => Model[i + j].EndTimeSla)</h4>
+                <p style="color:grey">Title: @Html.DisplayFor(item => Model[i + j].CustomerTitle)</p>
+                <b style="color:grey">Country: @Html.DisplayFor(item => Model[i + j].CallingCountry)</b>
+                <p style="color:grey">Queue: @Html.DisplayFor(item => Model[i + j].BelongQueue)</p>
+                <p style="color:slategrey">Bypassed</p>
+            }
+            else
+            {
+                <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Model[i + j + m].CaseId)</h4>
+                <h4 style="color:red">SLA: @Html.DisplayFor(item => Model[i + j + m].EndTimeSla)</h4>
+                <p class="lead">Title: @Html.DisplayFor(item => Model[i + j + m].CustomerTitle)</p>
+                <b>Country: @Html.DisplayFor(item => Model[i + j + m].CallingCountry)</b>
+                <p>Queue: @Html.DisplayFor(item => Model[i + j + m].BelongQueue)</p>
         <!--<button type="button" class="btn btn-success">@Html.ActionLink("Assigned", "Assigned", new { id = Model[i + j].CaseId })</button>-->
         <!--<button type="button" class="btn btn-danger">@Html.ActionLink("Bypassed", "Bypassed", new { id = Model[i + j].CaseId })</button>-->
 }
-        </div>
+         </div>
 
             if (Model[i + j].Equals(Model.LastOrDefault()))
-                {
-                    break;
-                }
-        }
+            {
+                break;
+            }
+         }
     </div>
 
     if (Model[i + j].Equals(Model.LastOrDefault()))
     {
         break;
     }
+
+    m = m + 3;
 }
 
