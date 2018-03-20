@@ -13,5 +13,7 @@ namespace WebApi_OfficeServer_SH.Models
         public string CustomerTitle { get; set; }
         public string SupportTopic { get; set; }
         public string BelongQueue { get; set; }
+        public string IfBypass { get; set; }
+        public string IfAssign { get; set; }
     }
 }

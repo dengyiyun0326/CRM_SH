@@ -20,7 +20,8 @@ namespace WebApi_OfficeServer_SH.Controllers
         [System.Web.Mvc.HttpGet]
         public List<CaseQueue> Get()
         {
-            return caseDBContext.CaseQueue.ToList();
+            var sortList = caseDBContext.CaseQueue.OrderBy(c => c.CallingCountry).ThenBy(t => DateTime.ParseExact(t.EndTimeSla,"g",null)).ToList();
+            return sortList;
         }
 
 

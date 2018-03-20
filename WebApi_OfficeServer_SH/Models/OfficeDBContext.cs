@@ -39,6 +39,16 @@ namespace WebApi_OfficeServer_SH.Models
                     .IsRequired()
                     .HasColumnName("endTimeSLA");
 
+                entity.Property(e => e.IfAssign)
+                    .HasColumnName("ifAssign")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IfBypass)
+                    .HasColumnName("ifBypass")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.InternalTitle).HasColumnName("internalTitle");
 
                 entity.Property(e => e.Severity)
