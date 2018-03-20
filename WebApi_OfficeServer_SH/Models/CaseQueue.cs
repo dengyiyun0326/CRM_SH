@@ -15,5 +15,22 @@ namespace WebApi_OfficeServer_SH.Models
         public string BelongQueue { get; set; }
         public string IfBypass { get; set; }
         public string IfAssign { get; set; }
+
+        public CaseQueue() { }
+
+        public CaseQueue(string caseid, string severity, string endtimesla, string callingcountry,
+            string internaltitle, string customertitle, string supporttopic, string belongqueue)
+        {
+            CaseId = caseid;
+            Severity = severity;
+            EndTimeSla = endtimesla;
+            CallingCountry = callingcountry;
+            InternalTitle = internaltitle;
+            CustomerTitle = customertitle;
+            SupportTopic = supporttopic;
+            BelongQueue = belongqueue;
+            IfBypass = "false";
+            IfAssign = "false";
+        }
     }
 }

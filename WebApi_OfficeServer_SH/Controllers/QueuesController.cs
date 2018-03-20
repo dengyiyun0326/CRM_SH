@@ -23,41 +23,5 @@ namespace WebApi_OfficeServer_SH.Controllers
             var sortList = caseDBContext.CaseQueue.OrderBy(c => c.CallingCountry).ThenBy(t => DateTime.ParseExact(t.EndTimeSla,"g",null)).ToList();
             return sortList;
         }
-
-
-        [System.Web.Mvc.HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IHttpActionResult> Post([FromBody]List<CaseQueue> caseQueueList)
-        {
-            //Clear Azure DB table
-            try
-            {
-                caseDBContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [CaseQueue]");
-                await caseDBContext.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                return Conflict();
-            }
-
-            if (caseQueueList.Any())
-            {
-                //Fill Azure DB table with client list
-                foreach (CaseQueue caseItem in caseQueueList)
-                {
-                    caseDBContext.CaseQueue.Add(caseItem);
-                }
-                try
-                {
-                    await caseDBContext.SaveChangesAsync();
-                }
-                catch (DbUpdateException)
-                {
-                    return Conflict();
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id=caseQueueList.Count},caseQueueList.Select(p=>p.CaseId));
-        }
     }
 }
