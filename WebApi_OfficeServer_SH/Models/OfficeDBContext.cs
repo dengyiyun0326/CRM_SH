@@ -7,6 +7,7 @@ namespace WebApi_OfficeServer_SH.Models
     public partial class OfficeDBContext : DbContext
     {
         public virtual DbSet<CaseQueue> CaseQueue { get; set; }
+        public virtual DbSet<CaseWellness> CaseWellness { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -56,6 +57,27 @@ namespace WebApi_OfficeServer_SH.Models
                     .HasColumnName("severity");
 
                 entity.Property(e => e.SupportTopic).HasColumnName("supportTopic");
+            });
+
+            modelBuilder.Entity<CaseWellness>(entity =>
+            {
+                entity.HasKey(e => e.CaseId);
+
+                entity.Property(e => e.CaseId)
+                    .HasColumnName("CaseID")
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.IdleDays).HasMaxLength(50);
+
+                entity.Property(e => e.Labor)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OpenDays).HasMaxLength(50);
+
+                entity.Property(e => e.OwnerAlias).IsRequired();
             });
         }
     }

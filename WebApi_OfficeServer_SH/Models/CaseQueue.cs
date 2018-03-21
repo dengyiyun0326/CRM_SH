@@ -17,7 +17,6 @@ namespace WebApi_OfficeServer_SH.Models
         public string IfAssign { get; set; }
 
         public CaseQueue() { }
-
         public CaseQueue(string caseid, string severity, string endtimesla, string callingcountry,
             string internaltitle, string customertitle, string supporttopic, string belongqueue)
         {

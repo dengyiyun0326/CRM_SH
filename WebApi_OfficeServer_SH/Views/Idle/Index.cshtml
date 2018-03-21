@@ -1,0 +1,1747 @@
+﻿@model List<WebApi_OfficeServer_SH.Models.CaseWellness>
+@{ 
+    string[] aliasList = new string[] {"REYU", "YOUWAN", "CATWANG", "XIALIA", "KANCH", "MIHUI", "TINGYA", "WEIGE", "HZHOU", "DAYWANG", "YINILI", "SHAGUO", "MINZHO"}; <!--13-->
+}
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    @aliasList[0]
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[0] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[0] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[0] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[0] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[0] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    @aliasList[1]
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[1] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[1] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[1] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[1] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[1] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    @aliasList[2]
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[2] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[2] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[2] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[2] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[2] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading4">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                    @aliasList[3]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[3] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[3] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[3] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[3] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[3] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading5">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                    @aliasList[4]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[4] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[4] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[4] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[4] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[4] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading6">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                    @aliasList[5]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[5] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[5] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[5] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[5] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[5] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading7">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                    @aliasList[6]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[6] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[6] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[6] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[6] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[6] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading8">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                    @aliasList[7]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[7] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[7] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[7] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[7] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[7] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading9">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                    @aliasList[8]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading9">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[8] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[8] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[8] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[8] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[8] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading10">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                    @aliasList[9]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading10">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[9] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[9] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[9] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[9] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[9] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading11">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                    @aliasList[10]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading11">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[10] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[10] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[10] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[10] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[10] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading12">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                    @aliasList[11]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading12">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[11] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[11] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[11] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[11] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[11] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading13">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                    @aliasList[12]
+                </a>
+            </h4>
+        </div>
+        <div id="collapse13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading13">
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending CTS</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[12] && m.WaitState == "Pending CTS"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Customer</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[12] && m.WaitState == "Pending Customer"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Pending Development</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[12] && m.WaitState == "Pending Development"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Pending Confirmation</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[12] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Solution Delivered - Solution Confirmed</th>
+                    </tr>
+                    <tr>
+                        <td>Case ID</td>
+                        <td>SR Title</td>
+                        <td>Last Communication</td>
+                        <td>Days Open</td>
+                        <td>Labor</td>
+                        <td>Idle Days</td>
+                    </tr>
+                    @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[12] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(p => item.CaseId)</td>
+                            <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                            <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                            <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                            <td>@Html.DisplayFor(p => item.Labor)</td>
+                            <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
