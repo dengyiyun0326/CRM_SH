@@ -17,7 +17,7 @@ namespace WebApi_OfficeServer_SH.Controllers
         public async Task<ActionResult> Index()
         {
             ViewBag.Title = "Purple Star No.999";
-            var sortList = caseDBContext.CaseQueue.OrderBy(c => c.CallingCountry).ThenBy(t => DateTime.ParseExact(t.EndTimeSla, "g", null));
+            var sortList = caseDBContext.CaseQueue.OrderBy(t => DateTime.ParseExact(t.EndTimeSla, "g", null));
             return View(await sortList.ToListAsync());
         }
 

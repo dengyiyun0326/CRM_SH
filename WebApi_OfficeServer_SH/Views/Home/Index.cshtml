@@ -1,5 +1,6 @@
 ﻿@model List<WebApi_OfficeServer_SH.Models.CaseQueue>
 @{int j; int m = 0;}
+
 @for (var i = 0; ; i++)
 {
     if (!Model.Any())
@@ -14,7 +15,7 @@
         <div class="col-md-3">
             <hr />
             <!--Bypass and Assgined-->
-            @if (Model[i + j].IfAssign == "true")
+            @if (Model[i + j + m].IfAssign == "true")
     {
         <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Model[i + j + m].CaseId)</h4>
         <h4 style="color:darkblue">SLA: @Html.DisplayFor(item => Model[i + j + m].EndTimeSla)</h4>
@@ -23,7 +24,7 @@
         <p style="color:darkblue">Queue: @Html.DisplayFor(item => Model[i + j + m].BelongQueue)</p>
         <h3 style="color:darkblue">Assigned</h3>
 }
-else if (Model[i + j].IfBypass == "true")
+else if (Model[i + j + m].IfBypass == "true")
 {
         <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Model[i + j + m].CaseId)</h4>
         <h4 style="color:grey">SLA: @Html.DisplayFor(item => Model[i + j + m].EndTimeSla)</h4>
@@ -39,19 +40,19 @@ else
         <p class="lead">Title: @Html.DisplayFor(item => Model[i + j + m].CustomerTitle)</p>
         <b>Country: @Html.DisplayFor(item => Model[i + j + m].CallingCountry)</b>
         <p>Queue: @Html.DisplayFor(item => Model[i + j + m].BelongQueue)</p>
-        @Html.ActionLink("Assign", "Assigned", new { id = Model[i + j + m].CaseId }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Assign", "Assigned", new { id = Model[i + j + m].CaseId }, new { @class = "btn btn-success", @style="margin-right:5px"})
         @Html.ActionLink("Bypass", "Bypassed", new { id = Model[i + j + m].CaseId }, new { @class = "btn btn-warning" })
 }
         </div>
 
-            if (Model[i + j].Equals(Model.LastOrDefault()))
+            if (Model[i + j + m].Equals(Model.LastOrDefault()))
             {
                 break;
             }
          }
     </div>
 
-    if (Model[i + j].Equals(Model.LastOrDefault()))
+    if (Model[i + j + m].Equals(Model.LastOrDefault()))
     {
         break;
     }
