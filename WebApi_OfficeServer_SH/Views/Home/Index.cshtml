@@ -1,20 +1,16 @@
 ﻿@model List<WebApi_OfficeServer_SH.Models.CaseQueue>
 @{
-    int j1, j2, j3, j4, j5, j6;
-    int m1 = 0, m2 = 0, m3 = 0, m4 = 0, m5 = 0, m6 = 0;
-    List<WebApi_OfficeServer_SH.Models.CaseQueue> APAC_Core_List = Model.Where(q => q.BelongQueue == "APAC Office Core Apps").ToList();
-    List<WebApi_OfficeServer_SH.Models.CaseQueue> APAC_Shared_List = Model.Where(q => q.BelongQueue == "APAC Office Shared Services").ToList();
-    List<WebApi_OfficeServer_SH.Models.CaseQueue> APAC_Activation_List = Model.Where(q => q.BelongQueue == "APAC Office Client Activation and Deployment").ToList();
-    List<WebApi_OfficeServer_SH.Models.CaseQueue> APAC_Dev_List = Model.Where(q => q.BelongQueue == "APAC Office Development (VSOD)").ToList();
-    List<WebApi_OfficeServer_SH.Models.CaseQueue> APAC_EBA_List = Model.Where(q => q.BelongQueue == "APAC EBA").ToList();
+    int j1, j6;
+    int m1 = 0, m6 = 0;
+    List<WebApi_OfficeServer_SH.Models.CaseQueue> Local_List = Model.Where(q => q.BelongQueue.Contains("APAC")).ToList();
     List<WebApi_OfficeServer_SH.Models.CaseQueue> Global_List = Model.Where(q => !q.BelongQueue.Contains("APAC")).ToList();
 }
 
-<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">APAC Office Core Apps</h3>
+<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">APAC Queue</h3>
 
 @for (var i = 0; ; i++)
 {
-    if (!APAC_Core_List.Any())
+    if (!Local_List.Any())
     {
         <h4 class="text-center" style="color:darkgrey">No case in this queue now. Have a relax :)</h4>
         break;
@@ -26,44 +22,44 @@
             <div class="col-md-3">
                 <hr />
                 <!--Bypass and Assgined-->
-                @if (APAC_Core_List[i + j1 + m1].IfAssign == "true")
+                @if (Local_List[i + j1 + m1].IfAssign == "true")
                 {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].CaseId)</h4>
-                    <h4 style="color:darkblue">SLA: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].EndTimeSla)</h4>
-                    <p style="color:darkblue">Title: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].CustomerTitle)</p>
-                    <b style="color:darkblue">Country: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].CallingCountry)</b>
-                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].BelongQueue)</p>
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
+                    <h4 style="color:darkblue">SLA: @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h4>
+                    <p style="color:darkblue">Title: @Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
+                    <b style="color:darkblue">Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
+                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
                     <h3 style="color:darkblue">Assigned</h3>
                 }
-                else if (APAC_Core_List[i + j1 + m1].IfBypass == "true")
+                else if (Local_List[i + j1 + m1].IfBypass == "true")
                 {
-                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].CaseId)</h4>
-                    <h4 style="color:grey">SLA: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].EndTimeSla)</h4>
-                    <p style="color:grey">Title: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].CustomerTitle)</p>
-                    <b style="color:grey">Country: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].CallingCountry)</b>
-                    <p style="color:grey">Queue: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].BelongQueue)</p>
+                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
+                    <h4 style="color:grey">SLA: @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h4>
+                    <p style="color:grey">Title: @Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
+                    <b style="color:grey">Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
+                    <p style="color:grey">Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
                     <h3 style="color:slategrey">Bypassed</h3>
                 }
                 else
                 {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].CaseId)</h4>
-                    <h4 style="color:red">SLA: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].EndTimeSla)</h4>
-                    <p class="lead">Title: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].CustomerTitle)</p>
-                    <b>Country: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].CallingCountry)</b>
-                    <p>Queue: @Html.DisplayFor(item => APAC_Core_List[i + j1 + m1].BelongQueue)</p>
-                    @Html.ActionLink("Assign", "Assigned", new { id = APAC_Core_List[i + j1 + m1].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
-                    @Html.ActionLink("Bypass", "Bypassed", new { id = APAC_Core_List[i + j1 + m1].CaseId }, new { @class = "btn btn-warning" })
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
+                    <h4 style="color:red">SLA: @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h4>
+                    <p class="lead">Title: @Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
+                    <b>Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
+                    <p>Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
+                    @Html.ActionLink("Assign", "Assigned", new { id = Local_List[i + j1 + m1].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
+                    @Html.ActionLink("Bypass", "Bypassed", new { id = Local_List[i + j1 + m1].CaseId }, new { @class = "btn btn-warning" })
                 }
             </div>
 
-            if (APAC_Core_List[i + j1 + m1].Equals(APAC_Core_List.LastOrDefault()))
+            if (Local_List[i + j1 + m1].Equals(Local_List.LastOrDefault()))
             {
                 break;
             }
         }
     </div>
 
-    if (APAC_Core_List[i + j1 + m1].Equals(APAC_Core_List.LastOrDefault()))
+    if (Local_List[i + j1 + m1].Equals(Local_List.LastOrDefault()))
     {
         break;
     }
@@ -71,255 +67,6 @@
     m1 = m1 + 3;
 }
 
-
-<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:50px">APAC Office Shared Services</h3>
-
-@for (var i = 0; ; i++)
-{
-    if (!APAC_Shared_List.Any())
-    {
-        <h4 class="text-center" style="color:darkgrey">No case in this queue now. Have a relax :)</h4>
-        break;
-    }
-
-    <div class="row">
-        @for (j2 = 0; j2 < 4; j2++)
-        {
-            <div class="col-md-3">
-                <hr />
-                <!--Bypass and Assgined-->
-                @if (APAC_Shared_List[i + j2 + m2].IfAssign == "true")
-                {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].CaseId)</h4>
-                    <h4 style="color:darkblue">SLA: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].EndTimeSla)</h4>
-                    <p style="color:darkblue">Title: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].CustomerTitle)</p>
-                    <b style="color:darkblue">Country: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].CallingCountry)</b>
-                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].BelongQueue)</p>
-                    <h3 style="color:darkblue">Assigned</h3>
-                }
-                else if (APAC_Shared_List[i + j2 + m2].IfBypass == "true")
-                {
-                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].CaseId)</h4>
-                    <h4 style="color:grey">SLA: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].EndTimeSla)</h4>
-                    <p style="color:grey">Title: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].CustomerTitle)</p>
-                    <b style="color:grey">Country: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].CallingCountry)</b>
-                    <p style="color:grey">Queue: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].BelongQueue)</p>
-                    <h3 style="color:slategrey">Bypassed</h3>
-                }
-                else
-                {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].CaseId)</h4>
-                    <h4 style="color:red">SLA: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].EndTimeSla)</h4>
-                    <p class="lead">Title: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].CustomerTitle)</p>
-                    <b>Country: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].CallingCountry)</b>
-                    <p>Queue: @Html.DisplayFor(item => APAC_Shared_List[i + j2 + m2].BelongQueue)</p>
-                    @Html.ActionLink("Assign", "Assigned", new { id = APAC_Shared_List[i + j2 + m2].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
-                    @Html.ActionLink("Bypass", "Bypassed", new { id = APAC_Shared_List[i + j2 + m2].CaseId }, new { @class = "btn btn-warning" })
-                }
-            </div>
-
-            if (APAC_Shared_List[i + j2 + m2].Equals(APAC_Shared_List.LastOrDefault()))
-            {
-                break;
-            }
-        }
-    </div>
-
-    if (APAC_Shared_List[i + j2 + m2].Equals(APAC_Shared_List.LastOrDefault()))
-    {
-        break;
-    }
-
-    m2 = m2 + 3;
-}
-
-
-<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:50px">APAC Office Client Activation and Deployment</h3>
-
-@for (var i = 0; ; i++)
-{
-    if (!APAC_Activation_List.Any())
-    {
-        <h4 class="text-center" style="color:darkgrey">No case in this queue now. Have a relax :)</h4>
-        break;
-    }
-
-    <div class="row">
-        @for (j3 = 0; j3 < 4; j3++)
-        {
-            <div class="col-md-3">
-                <hr />
-                <!--Bypass and Assgined-->
-                @if (APAC_Activation_List[i + j3 + m3].IfAssign == "true")
-                {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].CaseId)</h4>
-                    <h4 style="color:darkblue">SLA: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].EndTimeSla)</h4>
-                    <p style="color:darkblue">Title: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].CustomerTitle)</p>
-                    <b style="color:darkblue">Country: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].CallingCountry)</b>
-                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].BelongQueue)</p>
-                    <h3 style="color:darkblue">Assigned</h3>
-                }
-                else if (APAC_Activation_List[i + j3 + m3].IfBypass == "true")
-                {
-                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].CaseId)</h4>
-                    <h4 style="color:grey">SLA: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].EndTimeSla)</h4>
-                    <p style="color:grey">Title: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].CustomerTitle)</p>
-                    <b style="color:grey">Country: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].CallingCountry)</b>
-                    <p style="color:grey">Queue: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].BelongQueue)</p>
-                    <h3 style="color:slategrey">Bypassed</h3>
-                }
-                else
-                {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].CaseId)</h4>
-                    <h4 style="color:red">SLA: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].EndTimeSla)</h4>
-                    <p class="lead">Title: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].CustomerTitle)</p>
-                    <b>Country: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].CallingCountry)</b>
-                    <p>Queue: @Html.DisplayFor(item => APAC_Activation_List[i + j3 + m3].BelongQueue)</p>
-                    @Html.ActionLink("Assign", "Assigned", new { id = APAC_Activation_List[i + j3 + m3].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
-                    @Html.ActionLink("Bypass", "Bypassed", new { id = APAC_Activation_List[i + j3 + m3].CaseId }, new { @class = "btn btn-warning" })
-                }
-            </div>
-
-            if (APAC_Activation_List[i + j3 + m3].Equals(APAC_Activation_List.LastOrDefault()))
-            {
-                break;
-            }
-        }
-    </div>
-
-    if (APAC_Activation_List[i + j3 + m3].Equals(APAC_Activation_List.LastOrDefault()))
-    {
-        break;
-    }
-
-    m3 = m3 + 3;
-}
-
-
-
-<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:50px">APAC Office Development (VSOD)</h3>
-
-@for (var i = 0; ; i++)
-{
-    if (!APAC_Dev_List.Any())
-    {
-        <h4 class="text-center" style="color:darkgrey">No case in this queue now. Have a relax :)</h4>
-        break;
-    }
-
-    <div class="row">
-        @for (j4 = 0; j4 < 4; j4++)
-        {
-            <div class="col-md-3">
-                <hr />
-                <!--Bypass and Assgined-->
-                @if (APAC_Dev_List[i + j4 + m4].IfAssign == "true")
-                {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].CaseId)</h4>
-                    <h4 style="color:darkblue">SLA: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].EndTimeSla)</h4>
-                    <p style="color:darkblue">Title: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].CustomerTitle)</p>
-                    <b style="color:darkblue">Country: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].CallingCountry)</b>
-                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].BelongQueue)</p>
-                    <h3 style="color:darkblue">Assigned</h3>
-                }
-                else if (APAC_Dev_List[i + j4 + m4].IfBypass == "true")
-                {
-                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].CaseId)</h4>
-                    <h4 style="color:grey">SLA: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].EndTimeSla)</h4>
-                    <p style="color:grey">Title: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].CustomerTitle)</p>
-                    <b style="color:grey">Country: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].CallingCountry)</b>
-                    <p style="color:grey">Queue: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].BelongQueue)</p>
-                    <h3 style="color:slategrey">Bypassed</h3>
-                }
-                else
-                {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].CaseId)</h4>
-                    <h4 style="color:red">SLA: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].EndTimeSla)</h4>
-                    <p class="lead">Title: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].CustomerTitle)</p>
-                    <b>Country: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].CallingCountry)</b>
-                    <p>Queue: @Html.DisplayFor(item => APAC_Dev_List[i + j4 + m4].BelongQueue)</p>
-                    @Html.ActionLink("Assign", "Assigned", new { id = APAC_Dev_List[i + j4 + m4].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
-                    @Html.ActionLink("Bypass", "Bypassed", new { id = APAC_Dev_List[i + j4 + m4].CaseId }, new { @class = "btn btn-warning" })
-                }
-            </div>
-
-            if (APAC_Dev_List[i + j4 + m4].Equals(APAC_Dev_List.LastOrDefault()))
-            {
-                break;
-            }
-        }
-    </div>
-
-    if (APAC_Dev_List[i + j4 + m4].Equals(APAC_Dev_List.LastOrDefault()))
-    {
-        break;
-    }
-
-    m4 = m4 + 3;
-}
-
-
-
-<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:50px">APAC EBA</h3>
-
-@for (var i = 0; ; i++)
-{
-    if (!APAC_EBA_List.Any())
-    {
-        <h4 class="text-center" style="color:darkgrey">No case in this queue now. Have a relax :)</h4>
-        break;
-    }
-
-    <div class="row">
-        @for (j5 = 0; j5 < 4; j5++)
-        {
-            <div class="col-md-3">
-                <hr />
-                <!--Bypass and Assgined-->
-                @if (APAC_EBA_List[i + j5 + m5].IfAssign == "true")
-                {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].CaseId)</h4>
-                    <h4 style="color:darkblue">SLA: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].EndTimeSla)</h4>
-                    <p style="color:darkblue">Title: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].CustomerTitle)</p>
-                    <b style="color:darkblue">Country: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].CallingCountry)</b>
-                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].BelongQueue)</p>
-                    <h3 style="color:darkblue">Assigned</h3>
-                }
-                else if (APAC_EBA_List[i + j5 + m5].IfBypass == "true")
-                {
-                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].CaseId)</h4>
-                    <h4 style="color:grey">SLA: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].EndTimeSla)</h4>
-                    <p style="color:grey">Title: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].CustomerTitle)</p>
-                    <b style="color:grey">Country: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].CallingCountry)</b>
-                    <p style="color:grey">Queue: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].BelongQueue)</p>
-                    <h3 style="color:slategrey">Bypassed</h3>
-                }
-                else
-                {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].CaseId)</h4>
-                    <h4 style="color:red">SLA: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].EndTimeSla)</h4>
-                    <p class="lead">Title: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].CustomerTitle)</p>
-                    <b>Country: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].CallingCountry)</b>
-                    <p>Queue: @Html.DisplayFor(item => APAC_EBA_List[i + j5 + m5].BelongQueue)</p>
-                    @Html.ActionLink("Assign", "Assigned", new { id = APAC_EBA_List[i + j5 + m5].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
-                    @Html.ActionLink("Bypass", "Bypassed", new { id = APAC_EBA_List[i + j5 + m5].CaseId }, new { @class = "btn btn-warning" })
-                }
-            </div>
-
-            if (APAC_EBA_List[i + j5 + m5].Equals(APAC_EBA_List.LastOrDefault()))
-            {
-                break;
-            }
-        }
-    </div>
-
-    if (APAC_EBA_List[i + j5 + m5].Equals(APAC_EBA_List.LastOrDefault()))
-    {
-        break;
-    }
-
-    m5 = m5 + 3;
-}
 
 
 <h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:50px">Global Queues</h3>
