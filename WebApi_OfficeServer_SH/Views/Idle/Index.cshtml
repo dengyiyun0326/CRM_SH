@@ -1,16 +1,21 @@
 ﻿@model List<WebApi_OfficeServer_SH.Models.CaseWellness>
-@{ 
-    string[] aliasList = new string[] {"REYU", "YOUWAN", "CATWANG", "XIALIA", "KANCH", "MIHUI", "TINGYA", "WEIGE", "HZHOU", "DAYWANG", "YINILI", "SHAGUO", "MINZHO", "ZHALE"}; <!--0 ~ 13-->
-    string[] nameList = new string[] { "Rene Yu", "Birney Wang", "Catherine Wang", "Xiao Liang", "Kang Chen", "Midy Hui", "Bruce Yang", "Fish Ge", "Hongtao Zhou", "Will Wang", "Cassie Li", "David Guo", "Ming Zhou", "Andy Zhang" };
+@{
+    Dictionary<string, string> alias_name_dic = new Dictionary<string, string>
+    {
+        {"REYU", "Rene Yu" },{"YOUWAN", "Birney Wang" },{"CATWANG", "Catherine Wang" },{"XIALIA", "Xiao Liang" },{"KANCH", "Kang Chen" },{"MIHUI", "Midy Hui" },{"TINGYA", "Bruce Yang" },
+        { "WEIGE", "Fish Ge" },{ "HZHOU", "Hongtao Zhou" },{"DAYWANG", "Will Wang" },{"YINILI", "Cassie Li" },{"SHAGUO", "David Guo" },{"MINZHO", "Ming Zhou" },{"ZHALE", "Andy Zhang" }
+    };
+    var sortAliasList = Model.GroupBy(x => x.OwnerAlias).Select(x => new { Count = x.Count(), Alias = x.Key }).OrderByDescending(x => x.Count).ToList();  
+    int i = 0;
 }
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    @for (int i=0;i<14;i++)
+    @foreach(var x in sortAliasList)
     {
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="@(i+"heading")">
                 <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="@("#collapse"+i)" aria-expanded="false" aria-controls="@("collapse"+i)">
-                        @nameList[i] - Total: @Model.Where(c => c.OwnerAlias == aliasList[i]).Count()
+                        @alias_name_dic[x.Alias]   ---   Case Amount:@x.Count
                     </a>
                 </h4>
             </div>
@@ -26,16 +31,30 @@
                             <td>Labor</td>
                             <td>Idle Days</td>
                         </tr>
-                        @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[i] && m.WaitState == "Pending CTS"))
+                        @foreach (var item in Model.Where(m => m.OwnerAlias == x.Alias && m.WaitState == "Pending CTS"))
                         {
-                            <tr>
-                                <td>@Html.DisplayFor(p => item.CaseId)</td>
-                                <td>@Html.DisplayFor(p => item.CaseTitle)</td>
-                                <td>@Html.DisplayFor(p => item.LastCommTime)</td>
-                                <td>@Html.DisplayFor(p => item.OpenDays)</td>
-                                <td>@Html.DisplayFor(p => item.Labor)</td>
-                                <td>@Html.DisplayFor(p => item.IdleDays)</td>
-                            </tr>
+                            if (Int32.Parse(item.IdleDays) > 5)
+                            {
+                                <tr>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.Labor)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td>@Html.DisplayFor(p => item.Labor)</td>
+                                    <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
                         }
                     </table>
                     <h4 class="text-center" style="color:darkblue">Pending Customer</h4>
@@ -48,16 +67,30 @@
                             <td>Labor</td>
                             <td>Idle Days</td>
                         </tr>
-                        @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[i] && m.WaitState == "Pending Customer"))
+                        @foreach (var item in Model.Where(m => m.OwnerAlias == x.Alias && m.WaitState == "Pending Customer"))
                         {
-                            <tr>
-                                <td>@Html.DisplayFor(p => item.CaseId)</td>
-                                <td>@Html.DisplayFor(p => item.CaseTitle)</td>
-                                <td>@Html.DisplayFor(p => item.LastCommTime)</td>
-                                <td>@Html.DisplayFor(p => item.OpenDays)</td>
-                                <td>@Html.DisplayFor(p => item.Labor)</td>
-                                <td>@Html.DisplayFor(p => item.IdleDays)</td>
-                            </tr>
+                            if (Int32.Parse(item.IdleDays) > 5)
+                            {
+                                <tr>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.Labor)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td>@Html.DisplayFor(p => item.Labor)</td>
+                                    <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
                         }
                     </table>
                     <h4 class="text-center" style="color:darkblue">Pending Development</h4>
@@ -70,16 +103,30 @@
                             <td>Labor</td>
                             <td>Idle Days</td>
                         </tr>
-                        @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[i] && m.WaitState == "Pending Development"))
+                        @foreach (var item in Model.Where(m => m.OwnerAlias == x.Alias && m.WaitState == "Pending Development"))
                         {
-                            <tr>
-                                <td>@Html.DisplayFor(p => item.CaseId)</td>
-                                <td>@Html.DisplayFor(p => item.CaseTitle)</td>
-                                <td>@Html.DisplayFor(p => item.LastCommTime)</td>
-                                <td>@Html.DisplayFor(p => item.OpenDays)</td>
-                                <td>@Html.DisplayFor(p => item.Labor)</td>
-                                <td>@Html.DisplayFor(p => item.IdleDays)</td>
-                            </tr>
+                            if (Int32.Parse(item.IdleDays) > 5)
+                            {
+                                <tr>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.Labor)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td>@Html.DisplayFor(p => item.Labor)</td>
+                                    <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
                         }
                     </table>
                     <h4 class="text-center" style="color:darkblue">Solution Delivered - Pending confirmation</h4>
@@ -92,16 +139,30 @@
                             <td>Labor</td>
                             <td>Idle Days</td>
                         </tr>
-                        @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[i] && m.WaitState == "Solution Delivered - Pending Confirmation"))
+                        @foreach (var item in Model.Where(m => m.OwnerAlias == x.Alias && m.WaitState == "Solution Delivered - Pending Confirmation"))
                         {
-                            <tr>
-                                <td>@Html.DisplayFor(p => item.CaseId)</td>
-                                <td>@Html.DisplayFor(p => item.CaseTitle)</td>
-                                <td>@Html.DisplayFor(p => item.LastCommTime)</td>
-                                <td>@Html.DisplayFor(p => item.OpenDays)</td>
-                                <td>@Html.DisplayFor(p => item.Labor)</td>
-                                <td>@Html.DisplayFor(p => item.IdleDays)</td>
-                            </tr>
+                            if (Int32.Parse(item.IdleDays) > 5)
+                            {
+                                <tr>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.Labor)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td>@Html.DisplayFor(p => item.Labor)</td>
+                                    <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
                         }
                     </table>
                      <h4 class="text-center" style="color:darkblue">Solution Delivered - Solution Confirmed</h4>
@@ -114,21 +175,36 @@
                             <td>Labor</td>
                             <td>Idle Days</td>
                         </tr>
-                        @foreach (var item in Model.Where(m => m.OwnerAlias == aliasList[i] && m.WaitState == "Solution Delivered - Solution Confirmed"))
+                        @foreach (var item in Model.Where(m => m.OwnerAlias == x.Alias && m.WaitState == "Solution Delivered - Solution Confirmed"))
                         {
-                            <tr>
-                                <td>@Html.DisplayFor(p => item.CaseId)</td>
-                                <td>@Html.DisplayFor(p => item.CaseTitle)</td>
-                                <td>@Html.DisplayFor(p => item.LastCommTime)</td>
-                                <td>@Html.DisplayFor(p => item.OpenDays)</td>
-                                <td>@Html.DisplayFor(p => item.Labor)</td>
-                                <td>@Html.DisplayFor(p => item.IdleDays)</td>
-                            </tr>
+                            if (Int32.Parse(item.IdleDays) > 5)
+                            {
+                                <tr>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.Labor)</td>
+                                    <td style="color:red">@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(p => item.CaseId)</td>
+                                    <td>@Html.DisplayFor(p => item.CaseTitle)</td>
+                                    <td>@Html.DisplayFor(p => item.LastCommTime)</td>
+                                    <td>@Html.DisplayFor(p => item.OpenDays)</td>
+                                    <td>@Html.DisplayFor(p => item.Labor)</td>
+                                    <td>@Html.DisplayFor(p => item.IdleDays)</td>
+                                </tr>
+                            }
                         }
                     </table>
                 </div>
             </div>
         </div>
+        i++;
     }
 
 </div>

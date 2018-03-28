@@ -6,7 +6,7 @@
     List<WebApi_OfficeServer_SH.Models.CaseQueue> Global_List = Model.Where(q => !q.BelongQueue.Contains("APAC")).ToList();
 }
 
-<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">APAC Queue</h3>
+<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">APAC Queues</h3>
 
 @for (var i = 0; ; i++)
 {
@@ -26,7 +26,7 @@
                 {
                     <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
                     <h4 style="color:darkblue">SLA: @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h4>
-                    <p style="color:darkblue">Title: @Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
+                    <p style="color:darkblue">@Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
                     <b style="color:darkblue">Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
                     <p style="color:darkblue">Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
                     <h3 style="color:darkblue">Assigned</h3>
@@ -35,7 +35,7 @@
                 {
                     <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
                     <h4 style="color:grey">SLA: @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h4>
-                    <p style="color:grey">Title: @Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
+                    <p style="color:grey">@Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
                     <b style="color:grey">Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
                     <p style="color:grey">Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
                     <h3 style="color:slategrey">Bypassed</h3>
@@ -44,7 +44,7 @@
                 {
                     <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
                     <h4 style="color:red">SLA: @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h4>
-                    <p class="lead">Title: @Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
+                    <p class="lead">@Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
                     <b>Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
                     <p>Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
                     @Html.ActionLink("Assign", "Assigned", new { id = Local_List[i + j1 + m1].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
@@ -78,7 +78,7 @@
 
 
 
-<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:50px">Global Queues</h3>
+<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:80px">Global Queues</h3>
 
 @for (var i = 0; ; i++)
 {
@@ -98,7 +98,7 @@
                 {
                     <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</h4>
                     <h4 style="color:darkblue">SLA: @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</h4>
-                    <p style="color:darkblue">Title: @Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
+                    <p style="color:darkblue">@Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
                     <b style="color:darkblue">Country: @Html.DisplayFor(item => Global_List[i + j6 + m6].CallingCountry)</b>
                     <p style="color:darkblue">Queue: @Html.DisplayFor(item => Global_List[i + j6 + m6].BelongQueue)</p>
                     <h3 style="color:darkblue">Assigned</h3>
@@ -107,7 +107,7 @@
                 {
                     <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</h4>
                     <h4 style="color:grey">SLA: @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</h4>
-                    <p style="color:grey">Title: @Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
+                    <p style="color:grey">@Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
                     <b style="color:grey">Country: @Html.DisplayFor(item => Global_List[i + j6 + m6].CallingCountry)</b>
                     <p style="color:grey">Queue: @Html.DisplayFor(item => Global_List[i + j6 + m6].BelongQueue)</p>
                     <h3 style="color:slategrey">Bypassed</h3>
@@ -116,7 +116,7 @@
                 {
                     <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</h4>
                     <h4 style="color:red">SLA: @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</h4>
-                    <p class="lead">Title: @Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
+                    <p class="lead">@Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
                     <b>Country: @Html.DisplayFor(item => Global_List[i + j6 + m6].CallingCountry)</b>
                     <p>Queue: @Html.DisplayFor(item => Global_List[i + j6 + m6].BelongQueue)</p>
                     @Html.ActionLink("Assign", "Assigned", new { id = Global_List[i + j6 + m6].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
