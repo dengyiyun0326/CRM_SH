@@ -58,10 +58,19 @@
             }
         }
     </div>
-
-    if (Local_List[i + j1 + m1].Equals(Local_List.LastOrDefault()))
+    if (j1 == 4)
     {
-        break;
+        if (Local_List[i + j1 + m1 - 1].Equals(Local_List.LastOrDefault()))
+        {
+            break;
+        }
+    }
+    else
+    {
+        if (Local_List[i + j1 + m1].Equals(Local_List.LastOrDefault()))
+        {
+            break;
+        }
     }
 
     m1 = m1 + 3;
@@ -121,10 +130,19 @@
             }
         }
     </div>
-
-    if (Global_List[i + j6 + m6].Equals(Global_List.LastOrDefault()))
+    if (j6 == 4)
     {
-        break;
+        if (Global_List[i + j6 + m6 - 1].Equals(Global_List.LastOrDefault()))
+        {
+            break;
+        }
+    }
+    else
+    {
+        if (Global_List[i + j6 + m6].Equals(Global_List.LastOrDefault()))
+        {
+            break;
+        }
     }
 
     m6 = m6 + 3;
