@@ -3,9 +3,9 @@
     Dictionary<string, string> alias_name_dic = new Dictionary<string, string>
     {
         {"REYU", "Rene Yu" },{"YOUWAN", "Birney Wang" },{"CATWANG", "Catherine Wang" },{"XIALIA", "Xiao Liang" },{"KANCH", "Kang Chen" },{"MIHUI", "Midy Hui" },{"TINGYA", "Bruce Yang" },
-        { "WEIGE", "Fish Ge" },{ "HZHOU", "Hongtao Zhou" },{"DAYWANG", "Will Wang" },{"YINILI", "Cassie Li" },{"SHAGUO", "David Guo" },{"MINZHO", "Ming Zhou" },{"ZHALE", "Andy Zhang" }
+        { "WEIGE", "Fish Ge" },{ "HZHOU", "Hongtao Zhou" },{"DAYWANG", "Will Wang" },{"YINILI", "Cassie Li" },{"SHAGUO", "David Guo" },{"MINZHO", "Ming Zhou" },{"ZHALE", "Andy Zhang" },{"V-FETA", "Felix Tao" }
     };
-    var sortAliasList = Model.GroupBy(x => x.OwnerAlias).Select(x => new { Count = x.Count(), Alias = x.Key }).OrderByDescending(x => x.Count).ToList();  
+    var sortAliasList = Model.GroupBy(x => x.OwnerAlias).Select(x => new { Count = x.Count(), Alias = x.Key }).OrderByDescending(x => x.Count).ToList();
     int i = 0;
 }
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
