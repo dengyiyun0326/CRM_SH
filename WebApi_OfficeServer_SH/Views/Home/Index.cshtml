@@ -24,8 +24,8 @@
                 <!--Bypass and Assgined-->
                 @if (Local_List[i + j1 + m1].IfAssign == "true")
                 {
-                    <p class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</p>
-                    <p style="color:darkblue">SLA - @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</p>
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
+                    <h3 style="color:darkblue">SLA - @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h3>
                     <p style="color:darkblue">@Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
                     <b style="color:darkblue">Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
                     <p style="color:darkblue">Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
@@ -33,8 +33,8 @@
                 }
                 else if (Local_List[i + j1 + m1].IfBypass == "true")
                 {
-                    <p class="text-center" style="color:grey;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</p>
-                    <p style="color:grey">SLA - @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</p>
+                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
+                    <h3 style="color:grey">SLA - @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h3>
                     <p style="color:grey">@Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
                     <b style="color:grey">Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
                     <p style="color:grey">Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
@@ -42,8 +42,8 @@
                 }
                 else
                 {
-                    <p class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</p>
-                    <p style="color:red">SLA - @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</p>
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
+                    <h4 style="color:red">SLA - @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h4>
                     <p class="lead">@Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
                     <b>Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
                     <p>Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
@@ -96,8 +96,8 @@
                 <!--Bypass and Assgined-->
                 @if (Global_List[i + j6 + m6].IfAssign == "true")
                 {
-                    <p class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</p>
-                    <p style="color:darkblue">SLA - @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</p>
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</h4>
+                    <h3 style="color:darkblue">SLA - @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</h3>
                     <p style="color:darkblue">@Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
                     <b style="color:darkblue">Country: @Html.DisplayFor(item => Global_List[i + j6 + m6].CallingCountry)</b>
                     <p style="color:darkblue">Queue: @Html.DisplayFor(item => Global_List[i + j6 + m6].BelongQueue)</p>
@@ -105,8 +105,8 @@
                 }
                 else if (Global_List[i + j6 + m6].IfBypass == "true")
                 {
-                    <p class="text-center" style="color:grey;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</p>
-                    <p style="color:grey">SLA - @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</p>
+                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</h4>
+                    <h3 style="color:grey">SLA - @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</h3>
                     <p style="color:grey">@Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
                     <b style="color:grey">Country: @Html.DisplayFor(item => Global_List[i + j6 + m6].CallingCountry)</b>
                     <p style="color:grey">Queue: @Html.DisplayFor(item => Global_List[i + j6 + m6].BelongQueue)</p>
@@ -114,8 +114,8 @@
                 }
                 else
                 {
-                    <p class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</p>
-                    <p style="color:red">SLA - @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</p>
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</h4>
+                    <h4 style="color:red">SLA - @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</h4>
                     <p class="lead">@Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
                     <b>Country: @Html.DisplayFor(item => Global_List[i + j6 + m6].CallingCountry)</b>
                     <p>Queue: @Html.DisplayFor(item => Global_List[i + j6 + m6].BelongQueue)</p>
