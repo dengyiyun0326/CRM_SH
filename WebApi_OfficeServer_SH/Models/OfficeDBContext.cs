@@ -13,7 +13,7 @@ namespace WebApi_OfficeServer_SH.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=tcp:officedb.database.windows.net,1433;Database=OfficeDB;Persist Security Info=False;User ID=tingyabruce;Password=QQiloveyou437542894;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer(@"Server=tcp:crmapacdb.database.windows.net;Database=crmdb;Persist Security Info=False;User ID=yideng;Password=denny0326!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;MultipleActiveResultSets=true;");
             }
         }
 

@@ -2,15 +2,15 @@
 @{
     int j1, j6;
     int m1 = 0, m6 = 0;
-    List<WebApi_OfficeServer_SH.Models.CaseQueue> Local_List = Model.Where(q => q.BelongQueue.Contains("APAC")).ToList();
-    List<WebApi_OfficeServer_SH.Models.CaseQueue> Global_List = Model.Where(q => !q.BelongQueue.Contains("APAC")).ToList();
+    List<WebApi_OfficeServer_SH.Models.CaseQueue> Premier_List = Model.Where(q => q.BelongQueue.Contains("-Premier")).ToList();
+    List<WebApi_OfficeServer_SH.Models.CaseQueue> BC_List = Model.Where(q => q.BelongQueue.Contains("-BC")).ToList();
 }
 
-<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">APAC Queues</h3>
+<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Premier Queues</h3>
 
 @for (var i = 0; ; i++)
 {
-    if (!Local_List.Any())
+    if (!Premier_List.Any())
     {
         <h4 class="text-center" style="color:darkgrey">No case in this queue now. Have a relax :)</h4>
         break;
@@ -22,37 +22,37 @@
             <div class="col-md-3">
                 <hr />
                 <!--Bypass and Assgined-->
-                @if (Local_List[i + j1 + m1].IfAssign == "true")
+                @if (Premier_List[i + j1 + m1].IfAssign == "true")
                 {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
-                    <h3 style="color:darkblue">SLA - @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h3>
-                    <p style="color:darkblue">@Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
-                    <b style="color:darkblue">Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
-                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Premier_List[i + j1 + m1].CaseId)</h4>
+                    <h3 style="color:darkblue">SLA - @Html.DisplayFor(item => Premier_List[i + j1 + m1].EndTimeSla)</h3>
+                    <p style="color:darkblue">@Html.DisplayFor(item => Premier_List[i + j1 + m1].CustomerTitle)</p>
+                    <b style="color:darkblue">Country: @Html.DisplayFor(item => Premier_List[i + j1 + m1].CallingCountry)</b>
+                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => Premier_List[i + j1 + m1].BelongQueue)</p>
                     <h3 style="color:darkblue">Assigned</h3>
                 }
-                else if (Local_List[i + j1 + m1].IfBypass == "true")
+                else if (Premier_List[i + j1 + m1].IfBypass == "true")
                 {
-                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
-                    <h3 style="color:grey">SLA - @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h3>
-                    <p style="color:grey">@Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
-                    <b style="color:grey">Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
-                    <p style="color:grey">Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
+                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Premier_List[i + j1 + m1].CaseId)</h4>
+                    <h3 style="color:grey">SLA - @Html.DisplayFor(item => Premier_List[i + j1 + m1].EndTimeSla)</h3>
+                    <p style="color:grey">@Html.DisplayFor(item => Premier_List[i + j1 + m1].CustomerTitle)</p>
+                    <b style="color:grey">Country: @Html.DisplayFor(item => Premier_List[i + j1 + m1].CallingCountry)</b>
+                    <p style="color:grey">Queue: @Html.DisplayFor(item => Premier_List[i + j1 + m1].BelongQueue)</p>
                     <h3 style="color:slategrey">Bypassed</h3>
                 }
                 else
                 {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Local_List[i + j1 + m1].CaseId)</h4>
-                    <h4 style="color:red">SLA - @Html.DisplayFor(item => Local_List[i + j1 + m1].EndTimeSla)</h4>
-                    <p class="lead">@Html.DisplayFor(item => Local_List[i + j1 + m1].CustomerTitle)</p>
-                    <b>Country: @Html.DisplayFor(item => Local_List[i + j1 + m1].CallingCountry)</b>
-                    <p>Queue: @Html.DisplayFor(item => Local_List[i + j1 + m1].BelongQueue)</p>
-                    @Html.ActionLink("Assign", "Assigned", new { id = Local_List[i + j1 + m1].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
-                    @Html.ActionLink("Bypass", "Bypassed", new { id = Local_List[i + j1 + m1].CaseId }, new { @class = "btn btn-warning" })
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Premier_List[i + j1 + m1].CaseId)</h4>
+                    <h4 style="color:red">SLA - @Html.DisplayFor(item => Premier_List[i + j1 + m1].EndTimeSla)</h4>
+                    <p class="lead">@Html.DisplayFor(item => Premier_List[i + j1 + m1].CustomerTitle)</p>
+                    <b>Country: @Html.DisplayFor(item => Premier_List[i + j1 + m1].CallingCountry)</b>
+                    <p>Queue: @Html.DisplayFor(item => Premier_List[i + j1 + m1].BelongQueue)</p>
+                    @Html.ActionLink("Assign", "Assigned", new { id = Premier_List[i + j1 + m1].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
+                    @Html.ActionLink("Bypass", "Bypassed", new { id = Premier_List[i + j1 + m1].CaseId }, new { @class = "btn btn-warning" })
                 }
             </div>
 
-            if (Local_List[i + j1 + m1].Equals(Local_List.LastOrDefault()))
+            if (Premier_List[i + j1 + m1].Equals(Premier_List.LastOrDefault()))
             {
                 break;
             }
@@ -60,14 +60,14 @@
     </div>
     if (j1 == 4)
     {
-        if (Local_List[i + j1 + m1 - 1].Equals(Local_List.LastOrDefault()))
+        if (Premier_List[i + j1 + m1 - 1].Equals(Premier_List.LastOrDefault()))
         {
             break;
         }
     }
     else
     {
-        if (Local_List[i + j1 + m1].Equals(Local_List.LastOrDefault()))
+        if (Premier_List[i + j1 + m1].Equals(Premier_List.LastOrDefault()))
         {
             break;
         }
@@ -78,11 +78,11 @@
 
 
 
-<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:80px">Global Queues</h3>
+<h3 class="text-center" style="color:purple;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:80px">BC Queues</h3>
 
 @for (var i = 0; ; i++)
 {
-    if (!Global_List.Any())
+    if (!BC_List.Any())
     {
         <h4 class="text-center" style="color:darkgrey">No case in this queue now. Have a relax :)</h4>
         break;
@@ -94,37 +94,37 @@
             <div class="col-md-3">
                 <hr />
                 <!--Bypass and Assgined-->
-                @if (Global_List[i + j6 + m6].IfAssign == "true")
+                @if (BC_List[i + j6 + m6].IfAssign == "true")
                 {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</h4>
-                    <h3 style="color:darkblue">SLA - @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</h3>
-                    <p style="color:darkblue">@Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
-                    <b style="color:darkblue">Country: @Html.DisplayFor(item => Global_List[i + j6 + m6].CallingCountry)</b>
-                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => Global_List[i + j6 + m6].BelongQueue)</p>
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => BC_List[i + j6 + m6].CaseId)</h4>
+                    <h3 style="color:darkblue">SLA - @Html.DisplayFor(item => BC_List[i + j6 + m6].EndTimeSla)</h3>
+                    <p style="color:darkblue">@Html.DisplayFor(item => BC_List[i + j6 + m6].CustomerTitle)</p>
+                    <b style="color:darkblue">Country: @Html.DisplayFor(item => BC_List[i + j6 + m6].CallingCountry)</b>
+                    <p style="color:darkblue">Queue: @Html.DisplayFor(item => BC_List[i + j6 + m6].BelongQueue)</p>
                     <h3 style="color:darkblue">Assigned</h3>
                 }
-                else if (Global_List[i + j6 + m6].IfBypass == "true")
+                else if (BC_List[i + j6 + m6].IfBypass == "true")
                 {
-                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</h4>
-                    <h3 style="color:grey">SLA - @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</h3>
-                    <p style="color:grey">@Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
-                    <b style="color:grey">Country: @Html.DisplayFor(item => Global_List[i + j6 + m6].CallingCountry)</b>
-                    <p style="color:grey">Queue: @Html.DisplayFor(item => Global_List[i + j6 + m6].BelongQueue)</p>
+                    <h4 class="text-center" style="color:grey;">@Html.DisplayFor(item => BC_List[i + j6 + m6].CaseId)</h4>
+                    <h3 style="color:grey">SLA - @Html.DisplayFor(item => BC_List[i + j6 + m6].EndTimeSla)</h3>
+                    <p style="color:grey">@Html.DisplayFor(item => BC_List[i + j6 + m6].CustomerTitle)</p>
+                    <b style="color:grey">Country: @Html.DisplayFor(item => BC_List[i + j6 + m6].CallingCountry)</b>
+                    <p style="color:grey">Queue: @Html.DisplayFor(item => BC_List[i + j6 + m6].BelongQueue)</p>
                     <h3 style="color:slategrey">Bypassed</h3>
                 }
                 else
                 {
-                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => Global_List[i + j6 + m6].CaseId)</h4>
-                    <h4 style="color:red">SLA - @Html.DisplayFor(item => Global_List[i + j6 + m6].EndTimeSla)</h4>
-                    <p class="lead">@Html.DisplayFor(item => Global_List[i + j6 + m6].CustomerTitle)</p>
-                    <b>Country: @Html.DisplayFor(item => Global_List[i + j6 + m6].CallingCountry)</b>
-                    <p>Queue: @Html.DisplayFor(item => Global_List[i + j6 + m6].BelongQueue)</p>
-                    @Html.ActionLink("Assign", "Assigned", new { id = Global_List[i + j6 + m6].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
-                    @Html.ActionLink("Bypass", "Bypassed", new { id = Global_List[i + j6 + m6].CaseId }, new { @class = "btn btn-warning" })
+                    <h4 class="text-center" style="color:darkblue;">@Html.DisplayFor(item => BC_List[i + j6 + m6].CaseId)</h4>
+                    <h4 style="color:red">SLA - @Html.DisplayFor(item => BC_List[i + j6 + m6].EndTimeSla)</h4>
+                    <p class="lead">@Html.DisplayFor(item => BC_List[i + j6 + m6].CustomerTitle)</p>
+                    <b>Country: @Html.DisplayFor(item => BC_List[i + j6 + m6].CallingCountry)</b>
+                    <p>Queue: @Html.DisplayFor(item => BC_List[i + j6 + m6].BelongQueue)</p>
+                    @Html.ActionLink("Assign", "Assigned", new { id = BC_List[i + j6 + m6].CaseId }, new { @class = "btn btn-success", @style = "margin-right:5px" })
+                    @Html.ActionLink("Bypass", "Bypassed", new { id = BC_List[i + j6 + m6].CaseId }, new { @class = "btn btn-warning" })
                 }
             </div>
 
-            if (Global_List[i + j6 + m6].Equals(Global_List.LastOrDefault()))
+            if (BC_List[i + j6 + m6].Equals(BC_List.LastOrDefault()))
             {
                 break;
             }
@@ -132,14 +132,14 @@
     </div>
     if (j6 == 4)
     {
-        if (Global_List[i + j6 + m6 - 1].Equals(Global_List.LastOrDefault()))
+        if (BC_List[i + j6 + m6 - 1].Equals(BC_List.LastOrDefault()))
         {
             break;
         }
     }
     else
     {
-        if (Global_List[i + j6 + m6].Equals(Global_List.LastOrDefault()))
+        if (BC_List[i + j6 + m6].Equals(BC_List.LastOrDefault()))
         {
             break;
         }
