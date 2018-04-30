@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Http.Filters;
 using System.Web.Mvc;
 using WebApi_OfficeServer_SH.Models;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace WebApi_OfficeServer_SH.Controllers
@@ -18,7 +16,7 @@ namespace WebApi_OfficeServer_SH.Controllers
         {
             ViewBag.Title = "Purple Star No.999";
             var sortList = caseDBContext.CaseQueue.OrderBy(b => b.IfBypass).ThenBy(a => a.IfAssign).ThenBy(t => DateTime.ParseExact(t.EndTimeSla, @"MM\/ dd\/ yyyy HH: mm", null));
-            Response.AddHeader("Refresh","240");
+            Response.AddHeader("Refresh","300");
             return View(await sortList.ToListAsync());
         }
 
